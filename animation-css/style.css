@@ -1,0 +1,240 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    counter-reset: game;
+    background-color: rgb(28, 29, 42);
+}
+
+.container {    
+    position: relative;
+    height: 600px;
+    width: 300px;
+    border: 8px solid rgb(58, 2, 106);
+    border-radius: 40px;
+    background: #480be0;
+    box-shadow: 0 19px 38px rgba(255, 0, 230, 0.3), 0 15px 12px rgba(255, 0, 242, 0.22);
+    overflow: hidden;
+}
+
+.score-text {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+.score-text::after {
+    content: counter(game);
+}
+
+input[type=checkbox] {
+    position: absolute;
+    appearance: none;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    height: 80px;
+}
+
+input[type=checkbox]:checked {
+    counter-increment: game;
+}
+
+.layer1, .layer2, .layer3, .layer4, .layer5, .layer6, .layer7, .layer8, .layer9, .layer10 {
+    position: absolute;
+}
+
+.layer1 {
+    height: 450px;
+    width: 80px;
+    background: transparent;
+    bottom: 0;
+    right: 60px;
+
+    animation-name: layer;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes layer {
+    0% {
+        bottom: 0;
+    }
+
+    25% {
+        bottom: -80px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.layer2 {
+    height: 450px;
+    width: 80px;
+    background: transparent;
+    bottom: 0;
+    left: 60px; 
+
+    animation-name: layer;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.layer3 {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 220px;
+    height: 400px;
+    background: rgb(225, 198, 248);
+    border-radius: 10%;
+}
+
+.layer4 {
+    height: 350px;
+    width: 80px;
+    background: transparent;
+    bottom: 0;
+    left: 30px; 
+
+    animation-name: layer;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.layer5 {
+    left: 0;
+    right: 1;
+    bottom: 0;
+    margin: 0 auto;
+    width: 200px;
+    height: 300px;
+    background: rgb(209, 177, 235);
+    border-radius: 10%;
+    
+}
+
+.layer6 {
+    height: 225px;
+    width: 80px;
+    background: transparent;
+    bottom: 0;
+    right: 40px; 
+    animation-name: layer;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.layer7 {
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 160px;
+    height: 175px;
+    background: rgb(200, 161, 232);
+    border-top-right-radius:  10%;
+    border-top-left-radius:  10%;
+}
+
+.left-ear--outer {
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    left: 10px;
+    border-radius: 90%;
+    background: white;
+}
+
+.left-ear--inner {
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    border-radius: 90%;
+    background: pink;
+}
+
+.right-ear--outer {
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    border-radius: 90%;
+    background: white;
+}
+
+.right-ear--inner {
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    border-radius: 90%;
+    background: pink;
+}
+
+.head {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.head__eye {
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 15px;
+    background: gray;
+    border-radius: 50%;
+    
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        height: 4px;
+    }
+
+    5% {
+        transform: translate(0px, 2px);
+        height: 1px;
+    }
+    10%
+     {
+        transform: translate(0px, 0px);
+        height: 4px;
+    }
+
+}
+
+.head__eye--left {
+    left: 30px;
+}
+
+.head__eye--right {
+    right: 30px;
+}
